@@ -19,11 +19,11 @@
   * d_model=768, ffn_dim=3072, 
   * num_attention_heads=16
 * Additional Methods:
-  * [modeling_bart.py](model/bart_modified/modeling_bart.py)<br>
-  1. _laam_attn_is_multi(): Implementing the LAAM method proposed in the paper of [Liu et al. 2022](https://aclanthology.org/2022.acl-long.474.pdf): Multipy length-aware weighting matrix to the attention weights matrix.<br>
+  * Insid [modeling_bart.py](model/bart_modified/modeling_bart.py):<br>
+  1. <strong>_laam_attn_is_multi()</strong>: Implementing the LAAM method proposed in the paper of [Liu et al. 2022](https://aclanthology.org/2022.acl-long.474.pdf): Multipy length-aware weighting matrix to the attention weights matrix.<br>
       * This process works during the decoder's cross-attention mechanism.
       * lenght-aware weighting matrix is sent to the model from the outside.
-  2. _attention_filter(): Multiplying weighting filters per each segments.<br>
+  2. <strong>_attention_filter()</strong>: Multiplying weighting filters per each segments.<br>
       * Works during the decoder's cross-attention mechanism.
       * weighting filter is created outside of the decoder from a combination of the encoder's output and segment model's output. Then it is sent to the decoder.
 
